@@ -12,11 +12,15 @@ namespace GeometricLayouts.Shared
     {
         public static bool ValidateRow(string row)
         {
+            int rowNumber;
             try
             {
                 if (row.Length == 1)
                 {
-                    return ConvertRowAlphabetToNumber(row) < Convert.ToInt32(ConfigurationManager.AppSettings["NO_OF_ROWS"]);
+                    rowNumber = ConvertRowAlphabetToNumber(row);
+
+                    return rowNumber >= 0 && 
+                        rowNumber < Convert.ToInt32(ConfigurationManager.AppSettings["NO_OF_ROWS"]);
                 }
             }
             catch 
@@ -31,15 +35,12 @@ namespace GeometricLayouts.Shared
 
             try
             {
-                if (column.Length == 1)
-                {
-                    return Convert.ToInt32(column) < Convert.ToInt32(ConfigurationManager.AppSettings["NO_OF_COLUMNS"]);
-                }
-                
+                return Convert.ToInt32(column) > 0 &&
+                    Convert.ToInt32(column) <= Convert.ToInt32(ConfigurationManager.AppSettings["NO_OF_COLUMNS"]);
             }
             catch
             {
-                //do nothing, return false.
+                //do nothing, returns false.
             }
 
             return false;

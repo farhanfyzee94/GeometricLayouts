@@ -93,6 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Pages\TrianglePage.aspx" />
+    <Content Include="Scripts\TriangleScripts.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -108,6 +110,13 @@
     </Compile>
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Interfaces\IShape.cs" />
+    <Compile Include="Pages\TrianglePage.aspx.cs">
+      <DependentUpon>TrianglePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TrianglePage.aspx.designer.cs">
+      <DependentUpon>TrianglePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\TriangleService.cs" />
     <Compile Include="Shared\Helper.cs" />

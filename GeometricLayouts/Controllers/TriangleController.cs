@@ -19,7 +19,7 @@ namespace GeometricLayouts.Controllers
         }
 
         [HttpGet]
-        [Route("api/triangle/TriangleCoordinates/{position}")]
+        [Route("api/triangle/TriangleCoordinates")]
         public string TriangleCoordinates(string position)
         {
             List<Vertex> Coordinates = new List<Vertex>();
@@ -44,6 +44,7 @@ namespace GeometricLayouts.Controllers
 
         [HttpGet]
         [Route("api/triangle/TrianglePosition")]
+        //Sample payload coordinates=[{X:20,Y:20},{X:30,Y:30},{X:30,Y:20}] -> B6
         public string TrianglePosition([FromUri]string coordinates)
         {
             string position = String.Empty;
